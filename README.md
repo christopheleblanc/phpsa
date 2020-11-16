@@ -22,6 +22,12 @@ PHP Streams Aggregator does not require any specific installation. Just place th
 
 **From sources:** Download/copy the program directory to the location of your choice.
 
+Depending on your installation method, you may need to create the following directories used to store config, logs and temp files:
+
+> /data /data/config /data/logs /data/output /data/tmp /data/tmp/files /data/tmp/out /data/tmp/state
+
+*Note: Temporary files directory can be modified in configuration file.
+
 **Requires PHP 7.0 and higher**
 
 # Configuration
