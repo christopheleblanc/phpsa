@@ -16,7 +16,7 @@ With some basic knowledge, you will easily be able to keep your sources up to da
 **Read Documentation.html for more informations...**
 
 # Installation
-"PHP Streams Aggregator" does not require any special installation. Just place the application folder in the location of your choice.
+PHP Streams Aggregator does not require any special installation. Just place the application folder in the location of your choice.
 
 **From a compressed archive:** Extract the contents of the archive to the location of your choice.
 
