@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<streams update="every{15m}" output="output.xml" mixer="DemoMoviesMixer" maker="DemoMoviesMaker">
+	<stream id="src1" path="[path_to]\source1.xml" parser="DemoMoviesParser1"/>
+	<stream id="src2" path="[path_to]\source2.xml" parser="DemoMoviesParser2"/>
+	<stream id="src3" path="[path_to]\source3.json" parser="DemoMoviesParser3"/>
+	<stream id="src4" path="[path_to]\source4.csv" parser="DemoMoviesParser4"/>
+</streams>
