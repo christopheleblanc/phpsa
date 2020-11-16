@@ -26,7 +26,7 @@ Depending on your installation method, you may need to create the following dire
 
 > /data /data/config /data/logs /data/output /data/tmp /data/tmp/files /data/tmp/out /data/tmp/state
 
-*Note: Temporary files directory can be modified in configuration file.
+*Note: Temporary files directory can be modified in configuration file.*
 
 **Requires PHP 7.0 and higher**
 
