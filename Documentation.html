@@ -1,0 +1,2244 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>PHP Streams Agregator 1.0.0 - Documentation</title>
+	<style>
+		body{
+			background-color: #001942;
+			margin: 0 0;
+			padding: 0 0;
+			font-family: Georgia, serif;
+			font-size: 1.2em;
+		}
+		a:link,a:active,a:visited{
+			color: #007fbf;
+		}
+		a:hover{
+			color: #b81800;
+		}
+		header{
+			text-align: left;
+			width: 100%;
+			margin: 2em 0;
+		}
+		footer{
+			width: 100%;
+			margin: 2em 0;
+		}
+		header .ver{
+			font-size: 1.8em;
+		}
+		header .title{
+			margin-top: 2em;
+			font-size: 1.3em;
+		}
+		h1{
+			font-size: 2.5em;
+		}
+		h3{
+			text-align: left;
+			font-size: 2.0em;
+		}
+		h4{
+			text-align: left;
+			font-size: 1.6em;
+		}
+		h5{
+			font-size: 1.2em;
+		}
+		h1,h2,h3,h4,h5{
+			color: #001942;
+		}
+		article{
+			margin: 6em 0;
+		}
+		article .article-inner{
+			border-top: 1px dashed #b8b8b8;
+			padding-top: 1em;
+		}
+		article p{
+			text-align: justify;
+		}
+		.main{
+			background-color: white;
+			width: 90%;
+			max-width: 1000px;
+			min-height: 100vh;
+			padding: 2em 1em 2em 1em;
+			margin: auto;
+			display: block;
+		}
+		.main-inner{
+			margin: 0 2em;
+		}
+		.index-container .title{
+			font-size: 1.4em;
+			line-height: 2em;
+			color: #001942;
+		}
+		.code-container{
+			margin: 1em 0;
+		}
+		textarea{
+			resize: none;
+		}
+		.index-container{
+			margin: 4em 0 6em 0;
+		}
+		textarea.code{
+			background-color: #1a1b1c;
+			color: white;
+			width: 100%;
+			box-sizing: border-box;
+			overflow: auto;
+			padding: 1em;
+		}
+		span.code{
+			background-color: #f5f5f5;
+			padding: 0.1em 0.4em;
+			border: 1px solid #c2c2c2;
+		}
+		.table-container{
+			margin: 2em 0;
+		}
+		.table-container .label{
+			/* font-weight: bold; */
+			/* color: #001942; */
+		}
+		.table-spacer{
+			padding: 1em 0;
+		}
+		.table{
+			display: table;
+		}
+		.table-row{
+			display: table-row;
+		}
+		.table-row.odd{
+			background-color: #f5f5f5;
+		}
+		.table-cell{
+			display: table-cell;
+			padding: 0.2em 0.4em;
+		}
+		.table .head{
+			font-weight: bold;
+			color: #001942;
+			font-size: 0.9em;
+			border-bottom: 1px solid #8f8f8f;
+		}
+		.table .c1{
+			/* padding-left: 0; */
+		}
+		.table.w100{
+			width: 100%;
+		}
+		.table.double .c1{
+			width: 20%;
+		}
+		.table.double .c2{
+
+		}
+		.table.help .c1{
+			width: 15%;
+		}
+		.table.help .c2{
+
+		}
+		.table.class .c1{
+			width: 25%;
+		}
+		.table.class .c2{
+			width: 50%;
+		}
+		.table.class .c3{
+			width: 25%;
+		}
+		.table .opt{
+			color: #424242;
+			font-style: italic;
+			padding-left: 0.5em;
+			font-size: 0.9em;
+		}
+		.defs{
+			font-size: 0.8em;
+		}
+		.def{
+			margin-right: 0.5em;
+		}
+		.ast{
+			font-size: 0.8em;
+			font-style: italic;
+		}
+		.bold{
+			font-weight: bold;
+		}
+		.tabico{
+			border: 1px solid black;
+			background-color: #adadad;
+			border-radius: 0.15em;
+			padding: 0 0.2em;
+			margin-right: 0.2em;
+			font-size: 0.8em;
+			font-weight: bold;
+		}
+		span.reference{
+			color: #424242;
+			font-style: italic;
+		}
+		span.danger{
+			color: #dc3545;
+		}
+		.notice{
+			background-color: #ffde85;
+			color: #360b05;
+			padding: 1em;
+		}
+		.notice span.title{
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+		a.class{
+			text-decoration: none;
+			font-weight: bold;
+		}
+		.tree-container{
+			border: 1px dashed #b8b8b8;
+			padding: 1em;
+			display: inline-block;
+		}
+		.tree{
+			line-height: 1.4em;
+		}
+		.tree.l-1{
+			padding-left: 2.0em;
+		}
+		img{
+			position: relative;
+			left: 50%;
+			transform: translate(-50%,0);
+		}
+	</style>
+</head>
+<body>
+
+<div class="main">
+
+	<div class="main-inner">
+
+		<header>
+			<h1>PHP Streams Aggregator</h1>
+			<div class="ver">v1.0.0</div>
+			<div class="title">
+				<h2>Documentation v1.0</h2>
+			</div>
+		</header>
+
+		<div class="index-container">
+			<div class="title">Index</div>
+			<div><a href="#introduction">Introduction</a></div>
+			<div><a href="#install">Installation</a></div>
+			<div><a href="#configuration">Configuration</a></div>
+			<div><a href="#plugins">Plugins</a></div>
+			<div><a href="#programming">Programming interface</a></div>
+			<div><a href="#command">Command line parameters</a></div>
+			<div><a href="#run">Run the program</a></div>
+			<div><a href="#demo">Demonstration</a></div>
+			<div><a href="#license">License</a></div>
+		</div>
+
+		<a name="introduction"></a>
+		<article>
+			<h3>INTRODUCTION</h3>
+			<div class="article-inner">
+				<p>
+"PHP Streams Aggregator" is a program written in <a href="http://www.php.net" target="_blank">PHP</a> intended to parse multiple streams, 
+keep them up to date, process/mix the results and send them to a database or store them 
+into a single output file. 
+				</p>
+				<p>
+Designed to keep data up to date at regular intervals (daily, at a particular 
+hour, every X minutes etc ...), it is particularly useful for collecting or keeping  
+up to date important data for your application, server or website:
+				</p>
+				<ul>
+					<li>Currencies exchange rates from multiple api</li>
+					<li>Available products from multiple suppliers</li>
+					<li>Live news from different sources</li>
+					<li>etc...</li>
+				</ul>
+				<p>
+Regularly started by a "cron" or "scheduled" task, it will make sure your
+streams/feeds are up to date, will be updated whenever necessary, and will notify 
+you of any problems by storing various messages in its log files.
+				</p>
+				<p>
+Easy to run, just create your streams list (in XML) and code your own parsing/exporting functions 
+in <a href="http://www.php.net" target="_blank">PHP</a> to start.
+				</p>
+				<p>
+With some basic knowledge, you will easily be able to keep your sources up to date, parse and export 
+many types of files (XML, JSON, CSV, and many other types).
+				</p>
+			</div>
+		</article>
+
+		<a name="install"></a>
+		<article>
+			<h3>INSTALLATION</h3>
+			<div class="article-inner">
+				<p>
+"PHP Streams Aggregator" does not require any special installation. Just place 
+the application folder in the location of your choice.
+				</p>
+				<p>
+<span class="bold">From a compressed archive:</span> Extract the contents of the archive to the location 
+of your choice.
+				</p>
+				<p>
+<span class="bold">From sources:</span> Download/copy the program directory to the location 
+of your choice.
+				</p>
+			</div>
+		</article>
+
+		<a name="configuration"></a>
+		<article>
+			<h3>CONFIGURATION</h3>
+			<div class="article-inner">
+				<p>
+The use cases, the types of streams/feeds, the entities to be parsed and exported 
+can be very varied, each process will require specific plugins and configuration.
+				</p>
+				<p>
+To configure a process, you may use two different XML files.
+				</p>
+				<p>
+The first file is the configuration file, which can contains various options 
+relating to the entire program, regardless of the streams/feeds to be processed.
+				</p>
+				<p>
+The second file, called "streams list", is most important. It is used to define all the 
+streams that must be loaded (and parsed), as well as the options specific to the process or to 
+the streams. The id/name of each stream, the method used to download it (URL, 
+FTP...), the plugin used to parse it, the update options etc....
+				</p>
+				<p>
+To facilitate the execution of the program, the streams list file can be defined 
+directly in the configuration file by defining the option "list".
+				</p>
+				<p>
+Once the streams list file is created, you will be able to test it using the 
+command parameter "test" ("-t" or "--test"). Of course, you can also start the 
+update process directly. Any errors found in the file will be displayed and the 
+process will be terminated.
+				</p>
+			</div>
+		</article>
+
+		<article>
+			<h4>CONFIGURATION FILE</h4>
+			<div class="article-inner">
+				<p>
+Configuration file is a optional XML file used to store several global options.
+				</p>
+				<p>
+In fact, in the current version, configuration file can be unused if you don't 
+need it.
+				</p>
+
+
+				<div class="table-container">
+					<div>The options available:</div>
+					<div class="table-spacer">
+						<div class="table w100">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Type</div>
+								<div class="table-cell c3">Description</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">active<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">boolean</div>
+								<div class="table-cell c3">Defines if the program is activated or not.<br>Will prevent program execution if "False".</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">list<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">Streams list file launched at start.<br>This can be an absolute path, a relative path, or a file name</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">temp_dir<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The temporary files directory.<br>This can be an absolute ou relative path.</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">url_delay<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">integer</div>
+								<div class="table-cell c3">The delay between downloads on same server (in case of downloads from a same server).<br>Unit: milliseconds.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>
+<span class="bold">By default:</span> the program is "active", it will use the default temporary directory 
+as defined program constants, some other values can be defined in streams list, 
+and the streams list file to process can be passed as command line argument.
+				</p>
+
+				<br>
+				<div class="code-container">
+					<div>Example of configuration file:</div>
+					<textarea class="code" disabled rows="5">
+<?xml version="1.0" encoding="UTF-8"?>
+<options>
+  <list>my_streams_list.xml</list>
+  <url_delay>500</url_delay>
+</options>
+</textarea>
+				</div>
+
+			</div>
+		</article>
+
+		<article>
+			<h4>CONFIGURATION / STREAMS LIST</h4>
+			<div class="article-inner">
+				<p>
+Streams list files are XML files used to define the list of streams to be 
+processed as well as the options specific to the process or to each stream.
+				</p>
+				<p>
+Different attributes can be given to each node to define the different options.
+				</p>
+				<p>
+The root node allows to define the options of the complete process, while the 
+child nodes allow to define the streams and groups of streams.
+				</p>
+				<p>
+The number of options available for the root node will vary depending of the use 
+of groups or not. Some options, defining the whole process, must be defined in the
+root node.
+				</p>
+				<p>
+The options defining the update of the streams can be placed in the parent node or 
+in a group node, in the case of using different groups.
+				</p>
+
+				<br>
+
+				<div class="code-container">
+					<div>Example using only streams definitions:</div>
+					<textarea class="code" disabled rows="6">
+<?xml version="1.0" encoding="UTF-8"?>
+<streams output="out.xml" maker="DemoMaker">
+  <stream id="src1" url="http://www.demo.com/src1.xml" parser="Parser1"/>
+  <stream id="src2" url="http://www.demo.com/src2.xml" parser="Parser2"/>
+  <stream id="src3" url="http://www.demo.com/src3.xml" parser="Parser3"/>
+</streams>
+</textarea>
+				</div>
+
+				<div class="code-container">
+					<div>Example using grouped streams definitions:</div>
+					<textarea class="code" disabled rows="13">
+<?xml version="1.0" encoding="UTF-8"?>
+<streams output="out.xml" maker="DemoMaker">
+  <group id="group1">
+    <stream id="src1" url="http://www.demo.com/src1.xml" parser="Parser1"/>
+    <stream id="src2" url="http://www.demo.com/src2.xml" parser="Parser2"/>
+    <stream id="src3" url="http://www.demo.com/src3.xml" parser="Parser3"/>
+  </group>
+  <group id="group2">
+    <stream id="src4" url="http://www.demo.com/src4.xml" parser="Parser4"/>
+    <stream id="src5" url="http://www.demo.com/src5.xml" parser="Parser5"/>
+    <stream id="src6" url="http://www.demo.com/src6.xml" parser="Parser6"/>
+  </group>
+</streams>
+</textarea>
+				</div>
+
+				<br>
+
+				<div class="table-container">
+					<div class="label">The options available for root node are:</div>
+					<div class="table-spacer">
+						<div class="table w100">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Type</div>
+								<div class="table-cell c3">Description</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">maker</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The name of the plugin of type "Maker"</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">mixer</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The name of the plugin of type "Mixer"</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">output</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The name of the output file</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">validator</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The name of the plugin of type "Validator"</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">active<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">bool|int</div>
+								<div class="table-cell c3">Defines if the process is active or not<br>(Ex: "True", "TRUE", "1", "False", "FALSE", "0")</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">url_delay<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">int</div>
+								<div class="table-cell c3">The delay between downloads on same server (in case of downloads streams by url on a same server).<br>Unit: milliseconds.</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1"><span class="tabico group">G</span>max_delay<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string|int</div>
+								<div class="table-cell c3">The delay before considering the stream as outdated</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1"><span class="tabico group">G</span>update<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The update options</div>
+							</div>
+						</div>
+					</div>
+					<div class="defs"><span class="tabico">G</span> = Only if no group is used</div>
+				</div>
+
+				<br>
+
+				<div class="table-container">
+					<div>The options available for group nodes are:</div>
+					<div class="table-spacer">
+						<div class="table w100">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Type</div>
+								<div class="table-cell c3">Description</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">id</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The unique identifier of the group</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">active<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">bool|int</div>
+								<div class="table-cell c3">Defines if the group is active or not<br>(Ex: "True", "TRUE", "1", "False", "FALSE", "0")</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">max_delay<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string|int</div>
+								<div class="table-cell c3">The delay before considering the stream as outdated</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">update<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The update options</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<p>
+Each stream can have different attributes/options, and some of them allow to
+define the type of method used to load the stream.
+				</p>
+
+				<ul>
+					<li>
+The attribute "path" defines a local stream.
+					</li>
+					<li>
+The attribute "url" defines a stream that must be downloaded from a url address.
+					</li>
+					<li>
+The combination of attributes "ftp_address", "ftp_login" and "ftp_password" 
+defines a stream that must be downloaded from a ftp server. Optional 
+attributes "ftp_port" and "ftp_filepath" allows to complete the connexion 
+information.
+					</li>
+				</ul>
+
+				<p>
+Each stream must have certain options that are essential for the program to 
+function properly, in particular a unique identifier (attribute "id") and the 
+name of a plugin/class of type "Parser". Other options are optional.
+				</p>
+
+				<br>
+
+				<div class="table-container">
+					<div>The options available for stream nodes are:</div>
+					<div class="table-spacer">
+						<div class="table w100">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Type</div>
+								<div class="table-cell c3">Description</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">id</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The unique identifier of the stream</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">parser</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The name of the plugin of type "Parser"</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">active<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">bool|int</div>
+								<div class="table-cell c3">Defines if the group is active or not<br>(Ex: "True", "TRUE", "1", "False", "FALSE", "0")</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1"><span class="tabico path">P</span>path</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The path of the local stream</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1"><span class="tabico url">U</span>url</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The url address of the stream</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1"><span class="tabico ftp">F</span>ftp_address</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The address of the FTP server</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1"><span class="tabico ftp">F</span>ftp_login</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The login/username of ftp connexion</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1"><span class="tabico ftp">F</span>ftp_password</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The password of ftp connexion</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1"><span class="tabico ftp">F</span>ftp_filepath</div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The path of the stream file (from FTP root)</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1"><span class="tabico ftp">F</span>ftp_port<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The port used for ftp connexion</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">name<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The name of this stream (for debugging purpose)</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">max_delay<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string|int</div>
+								<div class="table-cell c3">The delay before considering the stream as outdated</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">update<span class="opt">(optional)</span></div>
+								<div class="table-cell c2">string</div>
+								<div class="table-cell c3">The update options</div>
+							</div>
+						</div>
+					</div>
+					<div class="defs">
+						<span class="def"><span class="tabico path">P</span> = Stream type "Local/Path"</span>
+						<span class="def"><span class="tabico url">U</span> = Stream type "URL"</span>
+						<span class="def"><span class="tabico ftp">F</span> = Stream type "FTP"</span>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="code-container">
+					<div>Example of the definition of a local stream:</div>
+					<textarea class="code" disabled rows="1">
+<stream id="ID" path="/path/to/src.xml" parser="Parser"/>
+</textarea>
+				</div>
+
+				<div class="code-container">
+					<div>Example of the definition of a stream that must be downloaded from a url:</div>
+					<textarea class="code" disabled rows="1">
+<stream id="ID" url="http://www.demo.com/src.xml" parser="Parser"/>
+</textarea>
+				</div>
+
+				<div class="code-container">
+					<div>Example of the definition of a stream that must be downloaded by ftp:</div>
+						<textarea class="code" disabled rows="2">
+<stream id="ID" ftp_address="http://www.demo.com/src.xml" ftp_login="LOGIN" ftp_password="PASSWORD" ftp_filepath="path/to/src.xml" parser="Parser"/>
+</textarea>
+				</div>
+
+				<br>
+
+				<p>
+To test the validity of your streams list, you can use the command line
+parameter "test".
+				</p>
+
+
+			</div>
+		</article>
+
+		<article>
+			<h4>CONFIGURATION / STREAMS LIST / UPDATE OPTIONS</h4>
+			<div class="article-inner">
+				<p>
+One of the advantages of "PHP Streams Aggregator" is to offer to its users a 
+simple method to update several streams at different time intervals.
+				</p>
+				<p>
+Using group and update options capacities, the users will be able to define 
+precisely how to update their streams, and the program will be able to update the 
+streams whenever it is necessary.
+				</p>
+
+				<br>
+
+				<p>
+The update options consist in two attributes, defined in the streams list file:
+				</p>
+
+				<ul>
+					<li>
+"update": Defines when streams should be updated.
+					</li>
+					<li>
+"max_delay": Defines the maximum delay allowed before considering the flows.
+					</li>
+				</ul>
+
+				<p>
+These options must be defined in the form of a string, and possibly in the form 
+of an integer for the "max_delay" attribute (Both are possible in this case).
+				</p>
+
+				<br>
+
+				<h5>Update</h5>
+
+				<p>
+The time of the update can be set in three different ways:
+				</p>
+
+				<ul>
+					<li>
+Update each time the program is launched.
+					</li>
+					<li>
+Update at a regular interval of XX time units (seconds, minutes, hours).
+					</li>
+					<li>
+Update at a specific time/hour of a day.
+					</li>
+				</ul>
+
+				<p>
+The ability to update at several different times of the day can be configured by
+combining the options, separating them with a semicolon.
+				</p>
+
+				<div class="table-container">
+					<div>Examples of correctly formatted values for update attribute "update":</div>
+					<div class="table-spacer">
+						<div class="table w100 double">
+							<div class="table-row head">
+								<div class="table-cell c1">Option</div>
+								<div class="table-cell c2">Translation</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"each"</div>
+								<div class="table-cell c2">Update each time</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"e"</div>
+								<div class="table-cell c2">Update each time</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"h{1}"</div>
+								<div class="table-cell c2">Update at 01:00:00</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"h{12:0}"</div>
+								<div class="table-cell c2">Update at 12:00:00</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"h{16:0:0}"</div>
+								<div class="table-cell c2">Update at 16:00:00</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"h{3:30:0}"</div>
+								<div class="table-cell c2">Update at 03:30:00</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"h{0:30};h{12}"</div>
+								<div class="table-cell c2">Update at 00:30:00 AND 12:00:00</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"every{15m}"</div>
+								<div class="table-cell c2">Update every 15 minutes</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"every{60M}"</div>
+								<div class="table-cell c2">Update every 60 minutes</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"every{1h}"</div>
+								<div class="table-cell c2">Update every 1 hour</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"every{6H}"</div>
+								<div class="table-cell c2">Update every 6 hour</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+				<div class="table-container">
+					<div>The available time units characters for update option "Update every xx time units" are:</div>
+					<div class="table-spacer">
+						<div class="table w100 double">
+							<div class="table-row head">
+								<div class="table-cell c1">Character</div>
+								<div class="table-cell c2">Time Units</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">s|S</div>
+								<div class="table-cell c2">seconds</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">m|M</div>
+								<div class="table-cell c2">minutes</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">h|H</div>
+								<div class="table-cell c2">hours</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<h5>Maximum delay</h5>
+
+				<p>
+The maximum delay option can be set in two different ways:
+				</p>
+
+				<ul>
+					<li>
+An integer defining a number of seconds.
+					</li>
+					<li>
+A string defining a number of XXX time units (seconds, minutes, hours).
+					</li>
+				</ul>
+
+				<div class="table-container">
+					<div>Example of correctly formatted values for maximum delay attribute "max_delay":</div>
+					<div class="table-spacer">
+						<div class="table w100 double">
+							<div class="table-row head">
+								<div class="table-cell c1">Option</div>
+								<div class="table-cell c2">Translation</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"3600"</div>
+								<div class="table-cell c2">3600 seconds</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"3600s"</div>
+								<div class="table-cell c2">3600 seconds</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"3600S"</div>
+								<div class="table-cell c2">3600 seconds</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"60m"</div>
+								<div class="table-cell c2">60 minutes</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"120M"</div>
+								<div class="table-cell c2">120 minutes</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"1h"</div>
+								<div class="table-cell c2">1 hour</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"6H"</div>
+								<div class="table-cell c2">6 hour</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">"1d"</div>
+								<div class="table-cell c2">1 day</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">"7D"</div>
+								<div class="table-cell c2">7 days</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="table-container">
+					<div>The available time units characters for maximum delay strings are:</div>
+					<div class="table-spacer">
+						<div class="table w100 double">
+							<div class="table-row head">
+								<div class="table-cell c1">Character</div>
+								<div class="table-cell c2">Time Units</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">s|S</div>
+								<div class="table-cell c2">seconds</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">m|M</div>
+								<div class="table-cell c2">minutes</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">h|H</div>
+								<div class="table-cell c2">hours</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">d|D</div>
+								<div class="table-cell c2">days</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="code-container">
+					<div>Example of streams list configured with update options:</div>
+					<textarea class="code" disabled rows="6">
+<?xml version="1.0" encoding="UTF-8"?>
+<streams update="h{0};h{12:0:0}" max_delay="12h" output="out.xml" maker="DemoMaker">
+  <stream id="src1" url="http://www.demo.com/src1.xml" parser="Parser1"/>
+  <stream id="src2" url="http://www.demo.com/src2.xml" parser="Parser2"/>
+  <stream id="src3" url="http://www.demo.com/src3.xml" parser="Parser3"/>
+</streams>
+</textarea>
+				</div>
+
+				<div class="code-container">
+					<div>Example of groups configured with update options:</div>
+						<textarea class="code" disabled rows="13">
+<?xml version="1.0" encoding="UTF-8"?>
+<streams output="out.xml" maker="Maker">
+  <group id="group1" update="every{15m}" max_delay="2h">
+    <stream id="src1" url="http://www.demo.com/src1.xml" parser="Parser1"/>
+    <stream id="src2" url="http://www.demo.com/src2.xml" parser="Parser2"/>
+    <stream id="src3" url="http://www.demo.com/src3.xml" parser="Parser3"/>
+  </group>
+  <group id="group2" update="h{0};h{12}" max_delay="12h">
+    <stream id="src4" url="http://www.demo.com/src4.xml" parser="Parser4"/>
+    <stream id="src5" url="http://www.demo.com/src5.xml" parser="Parser5"/>
+    <stream id="src6" url="http://www.demo.com/src6.xml" parser="Parser6"/>
+  </group>
+</streams>
+</textarea>
+				</div>
+
+			</div>
+		</article>
+
+
+		<a name="plugins"></a>
+		<article>
+			<h3>PLUGINS</h3>
+			<div class="article-inner">
+
+				<p>
+Unfortunately, there is no magic in the way the program works. Each stream can 
+have a different structure, the data to be parsed can be of various types, the 
+output file can be totally different depending on your use, so you will have 
+to develop your own plugins and integrate them into the program.
+				</p>
+				<p>
+Don't panic! This concept has been simplified as much as possible, and if the 
+streams processed are simple, your plugins will only represent a few lines of 
+code. Either way, if you've already developed a little piece of code to parse 
+a stream, add entities to an array or export a file, it will be a snap!
+				</p>
+
+					<div class="table-container">
+						<div>In its current version, the program take five types of plugins:</div>
+						<div class="table-spacer">
+							<div class="table w100 double">
+								<div class="table-row odd">
+									<div class="table-cell c1"><a class="class" href="#plugins-parser">Parser</a></div>
+									<div class="table-cell c2">A type of plugins intended to parse a stream and add the parsed entities to a simple array.</div>
+								</div>
+								<div class="table-row">
+									<div class="table-cell c1"><a class="class" href="#plugins-mixer">Mixer</a></div>
+									<div class="table-cell c2">
+A type of plugins intended to "mix" or aggregate all parsed 
+entities from all streams. This type of plugin is optional but 
+can be useful for many other things which will be described in a 
+dedicated paragraph.</div>
+								</div>
+								<div class="table-row odd">
+									<div class="table-cell c1"><a class="class" href="#plugins-maker">Maker</a></div>
+									<div class="table-cell c2">
+A type of plugins intended to finalize the process with parsed data.
+It can be used to store parsed data into an output file or in a
+database, send data by email, pass them to an other program...</div>
+								</div>
+								<div class="table-row">
+									<div class="table-cell c1"><a class="class" href="#plugins-validator">Validator</a></div>
+									<div class="table-cell c2">
+A type of plugins intended to validate the exported file. This type 
+of plugins is optional but can be useful to validate your output 
+file and doing some stuff if you got errors.</div>
+								</div>
+								<div class="table-row odd">
+									<div class="table-cell c1"><a class="class" href="#plugins-runner">Runner</a></div>
+									<div class="table-cell c2">
+A type of plugins which has the ability to reacts to event during 
+all the process. Can be used to listen errors etc...</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<p>
+Each type of plugin must be a new PHP class inherited from the abstract 
+class corresponding to the type.
+					</p>
+
+				</div>
+			</article>
+
+			<a name="plugins-parser"></a>
+
+			<article>
+				<h4>PLUGINS / PARSER</h4>
+					<div class="article-inner">
+					<p>
+Plugins of type "Parser" are the only plugins that are required. Without them, 
+the program will not be able to parse your streams.
+					</p>
+					<p>
+The concept is pretty simple: A plugin of type "Parser" must be a class which 
+extends the abstract class "AbstractParser" and contains a method "parse()":
+					</p>
+
+				<div class="code-container">
+						<textarea class="code" disabled rows="1">
+parse(&$context, &$mixed, &$array)
+</textarea>
+				</div>
+
+				<p>
+This method will be used to parse the data or the file passed as argument 2 
+(depending on the type of parser) and fill the array passed as argument 3 with 
+parsed entities.
+				</p>
+				<p>
+The method "parse()" will have to modify the protected boolean "isComplete" 
+(owned by the parent class "AbstractParser") to notify the program that the 
+process is complete. Otherwise, the program will believe that the process failed 
+and return an error.
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="2">
+$this->isComplete = true; // Example with protected variable
+$this->setIsComplete();   // Example with protected method
+</textarea>
+				</div>
+
+			</div>
+		</article>
+
+		<a name="plugins-mixer"></a>
+
+		<article>
+
+			<h4>PLUGINS / MIXER</h4>
+				<div class="article-inner">
+
+					<p>
+Plugins of type "Mixer" are optional plugins that can be used for different 
+reasons, but above all to mix / aggregate / sort all entities coming from 
+different streams.
+					</p>
+					<p>
+The streams and parsed entities are represented by an instance of the class 
+<a class="class" href="#classes-parsedlist">ParsedList</a>, which can be traveled to process / select parsed data.
+					</p>
+					<p>
+To better understand the interest of this plugin, it is important to explain 
+how the program works when parsing streams.
+				</p>
+				<p>
+During the parse process, the program separates the entities coming from streams 
+which are up to date or not into three distinct tables:
+				</p>
+
+				<ul>
+					<li>
+Entities coming from up to date streams.
+					</li>
+					<li>
+Entities coming from late streams (i.e. not up to date but respecting the 
+maximum delay).
+					</li>
+					<li>
+Entities coming from outdated streams.
+					</li>
+				</ul>
+
+				<p>
+This allow the user to choose the entities that he wants to process and include 
+in his output depending on their state of update.
+				</p>
+				<p>
+From the data contained in ParsedList, and thanks to the "Mixer" plugin, the user 
+will have the choice to take all the data or to take only a part of it, and to 
+apply all the treatments that he wishes to them (sorting , modification, verification etc ...).
+				</p>
+				<p>
+Respecting the same concept as other plugins: A plugin of type "Mixer" must be 
+a class which extends the abstract class "AbstractMixer".
+				</p>
+				<p>
+The plugin class must contains a method "mix()":
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+mix(&$context, &$parsedList)
+</textarea>
+				</div>
+
+				<p>
+This method will be used to mix / agregate the data passed in the instance of 
+ParsedList and return the array of selected entities that will be sent to the 
+output. An instance of ParsedList is passed as argument 2.
+				</p>
+				<p>
+The method "mix()" will have to modify the protected boolean "isComplete"
+(owned by the parent class "AbstractMixer") to notify the program that the
+process is complete. Otherwise, the program will believe that the process failed
+and return an error.
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="2">
+$this->isComplete = true; // Example with protected variable
+$this->setIsComplete();   // Example with protected method
+</textarea>
+				</div>
+
+				<p>
+The class "AbstractMixer" contains also a variable named "errorText" that can be 
+used to return a specific error message that you determine.
+				</p>
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+$this->errorText = "Mixing error.";
+</textarea>
+				</div>
+
+			</div>
+		</article>
+
+		<a name="plugins-maker"></a>
+
+		<article>
+
+			<h4>PLUGINS / MAKER</h4>
+			<div class="article-inner">
+
+				<p>
+Plugins of type "Maker" are optional plugins that can be used for finalize the 
+process. Although in most cases it will be used to export the data to an output 
+file. It can be used for many other things... Storing the parsed entities to a 
+database, send them to an other program, etc...
+				</p>
+				<p>
+Respecting the same concept as other plugins: A plugin of type "Maker" must be
+a class which extends the abstract class "AbstractMaker" and contains a method
+"make()".
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+make(&$context, &$data)
+</textarea>
+				</div>
+
+				<p>
+This method will be used to save/export/process the data passed as argument 2. 
+If you want to store the data to a file, and if the output file is defined in the 
+streams list file as attribute "output"), output file path can be found in the 
+context object.
+				</p>
+				<p>
+Each user may have specific needs, it will be his responsibility to program 
+the way in which the data will be saved, the structure of the file, the functions 
+used etc ...
+				</p>
+				<p>
+The method "make()" will have to modify the protected boolean "isComplete" 
+(owned by the parent class "AbstractMaker") to notify the program that the 
+process is complete. Otherwise, the program will believe that the process failed 
+and return an error.
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="2">
+$this->isComplete = true; // Example with protected variable
+$this->setIsComplete();   // Example with protected method
+</textarea>
+				</div>
+
+				<p>
+The class "AbstractMaker" contains also a variable named "errorText" that can be
+used to return a specific error message that you determine.
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+$this->errorText = "Mixing error.";
+</textarea>
+				</div>
+
+			</div>
+		</article>
+
+		<a name="plugins-validator"></a>
+
+		<article>
+
+			<h4>PLUGINS / VALIDATOR</h4>
+			<div class="article-inner">
+
+				<p>
+Plugins of type "Validator" are optional plugins that can be used to validate the 
+output file created by plugin "Maker", or to validate any other process.
+				</p>
+				<p>
+Respecting the same concept as other plugins: A plugin of type "Validator" must 
+be a class which extends the abstract class "AbstractValidator" and contains a 
+method "validate()".
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+validate(&$context)
+</textarea>
+				</div>
+
+				<p>
+This method will be used to validate the output file. It must return a boolean 
+which defines if the output is valid or not.
+				</p>
+				<p>
+Like in other plugins, it will be the responsibility of the user to program the 
+way in which the data will be validated or not.
+				</p>
+				<p>
+To allow the display of an error message, the class contains a protected variable 
+"errorText" of types string/null which can be used to return a detailed error 
+message.
+				</p>
+				<p>
+Another variable, named "totalMissings", of type integer, is available to the 
+user, in order to store the number of invalid elements in the list state file, 
+which can be useful if the user wishes to know this detail later. 
+Its value can be unchanged if it is not useful. In this case, it will not be 
+written to the state file. 
+				</p>
+
+			</div>
+		</article>
+
+		<a name="plugins-runner"></a>
+
+		<article>
+
+			<h4>PLUGINS / RUNNER</h4>
+				<div class="article-inner">
+
+					<p>
+Plugins of type "Runner" are special classes which can interract with the program 
+during all the process using an event system.
+					</p>
+					<p>
+There are always some very specific cases, and it may be useful to be able to 
+interact with the program while it is running. The program send events during the 
+process and it is possible de react to them.
+					</p>
+					<p>
+For this, another type of plugin is defined: The Runners.
+					</p>
+					<p>
+Respecting the same concept as other plugins: A plugin of type "Runner" must 
+be a class which extends the abstract class "AbstractRunner".
+					</p>
+					<p>
+The big difference with the other plugins is that the runners do not have a single
+assigned function but can react to all the events of the program.
+					</p>
+					
+					<h5>Events</h5>
+
+					<div class="table-container">
+						<div>In order of execution:</div>
+						<div class="table-spacer">
+							<div class="table w100 double">
+								<div class="table-row head">
+									<div class="table-cell c1">Event</div>
+									<div class="table-cell c2">Description</div>
+								</div>
+								<div class="table-row odd">
+									<div class="table-cell c1">init</div>
+									<div class="table-cell c2">Sent after plugin instanciation</div>
+								</div>
+								<div class="table-row">
+									<div class="table-cell c1">download</div>
+									<div class="table-cell c2">Sent after a stream download</div>
+								</div>
+								<div class="table-row odd">
+									<div class="table-cell c1">update</div>
+									<div class="table-cell c2">Sent after updating streams</div>
+								</div>
+								<div class="table-row">
+									<div class="table-cell c1">parse</div>
+									<div class="table-cell c2">Sent after parsing one stream</div>
+								</div>
+								<div class="table-row odd">
+									<div class="table-cell c1">parse_all</div>
+									<div class="table-cell c2">Sent after parsing all streams</div>
+								</div>
+								<div class="table-row">
+									<div class="table-cell c1">mix</div>
+									<div class="table-cell c2">Sent after processing/mixing parsed data</div>
+								</div>
+								<div class="table-row odd">
+									<div class="table-cell c1">make</div>
+									<div class="table-cell c2">Sent after processing "Maker" plugin</div>
+								</div>
+								<div class="table-row">
+									<div class="table-cell c1">validate</div>
+									<div class="table-cell c2">Sent after output validation</div>
+								</div>
+								<div class="table-row odd">
+									<div class="table-cell c1">finish</div>
+									<div class="table-cell c2">Sent when program has finished the entire process</div>
+								</div>
+								<div class="table-row">
+									<div class="table-cell c1">stop</div>
+									<div class="table-cell c2">Sent when the program stops</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+								
+					<br>
+
+					<p>
+<span class="bold">To react to an event:</span>
+					</p>
+
+					<div class="code-container">
+						<textarea class="code" disabled rows="1">
+onEvent(&$context, $event, &$arguments)
+</textarea>
+					</div>
+
+					<p>
+The event name is passed as parameter 2, and event arguments as parameter 3.
+					</p>
+
+					<br>
+
+					<p>
+<span class="bold">To react to a specific event using a function:</span>
+					</p>
+
+					<div class="code-container">
+						<div>Example for event "validate":</div>
+						<textarea class="code" disabled rows="1">
+onValidate(&$context, &$arguments)
+</textarea>
+					</div>
+
+					<div class="code-container">
+						<div>Example for event "finish":</div>
+						<textarea class="code" disabled rows="1">
+onFinish(&$context, &$arguments)
+</textarea>
+					</div>
+
+			</div>
+		</article>
+
+		<article>
+
+			<h3>NOTES FOR PLUGINS DEVELOPMENT</h3>
+			<div class="article-inner">
+
+				<p>
+The development/programming of plugins is very easy. As you can see in dedicated 
+chapters or in demos, they mainly consist of calling a function, and only use a 
+few additional variables, detailed in the documentation and the code comments.
+				</p>
+				<p>
+Development as such should therefore not be complicated, even for a novice 
+developer.
+				</p>
+				<p>
+<span class="bold">There are only a few rules to follow:</span>
+				</p>
+
+				<ul>
+					<li>
+All plugin classes must inherit from respective abstract classes.
+					</li>
+					<li>
+The classes constructors must not be used to initialize variables. Please 
+use the function "init(&$context)" instead.
+					</li>
+					<li>
+The methods called must define the process as "complete" using the class 
+variable "isComplete" or the member method "setIsComplete()". Otherwise the 
+program will consider the process as failed.
+					</li>
+				</ul>
+
+				<p>
+<span class="bold">Some tips could also help:</span>
+				</p>
+
+				<ul>
+					<li>
+It may be more convenient to use temporary list files that define only one stream.
+					</li>
+					<li>
+It might be more practical to avoid using remote streams that require a 
+download. It will be much more convenient to use a locally stored stream.
+This will avoid wasting time loading the streams on each test, especially 
+during the debugging phases.
+					</li>
+				</ul>
+
+			</div>
+		</article>
+
+		<a name="programming"></a>
+
+		<article>
+
+			<h3>PROGRAMMING INTERFACE</h3>
+			<div class="article-inner">
+
+				<p>
+The program requires the use of plugins which must be programmed in PHP. 
+These plugins will communicate with the program by several classes and 
+arguments which will be passed as method parameters.
+				</p>
+
+				<div class="notice">
+<span class="title">Notice: </span>The current version of this documentation is not complete, you should 
+see the source codes to better understand the classes and objects available. However, 
+here is a short description of the classes available.
+				</div>
+
+				<br>
+				
+				<h4>Context</h4>
+
+				<p>
+The Context object is the main object, passed to all plugins, to all member methods, usable from
+everywhere.
+				</p>
+
+				<p>
+It contains most of usefull data and other objects used during a process. The program options, 
+the streams list, the state data, informations about the output file, etc...
+				</p>
+
+				<h5>Member methods:</h5>
+
+				<div class="table-container">
+					<div class="table-spacer">
+						<div class="table w100 class">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Description</div>
+								<div class="table-cell c3">Return</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getConfig()</div>
+								<div class="table-cell c2">Get the configuration data (from configuration file)</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>Config</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getCurrentDate()</div>
+								<div class="table-cell c2">Get the current date</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>DateTimeNumeric</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getOptions()</div>
+								<div class="table-cell c2">Get the program options</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>Options</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getOutputFile()</div>
+								<div class="table-cell c2">Get output file data if it has been defined, or Null</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>OutputFile|null</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getOutputFilePath()</div>
+								<div class="table-cell c2">Get output file path if it has been defined, or Null</div>
+								<div class="table-cell c3">String|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getPlugins()</div>
+								<div class="table-cell c2">Get the plugins</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>Plugins</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getStreamsList()</div>
+								<div class="table-cell c2">Get the streams list (from streams list file)</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>StreamsList</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getStreamsState()</div>
+								<div class="table-cell c2">Get the streams state (from streams state file)</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>StreamsListState</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getTempDirectory()</div>
+								<div class="table-cell c2">Get the temporary directory</div>
+								<div class="table-cell c3">String</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+				<a name="classes-parsedlist"></a>
+
+				<h4>ParsedList</h4>
+
+				<p>
+The ParsedList is an object passed to the <a class="class" href="#plugins-mixer">Mixer</a>, containing all parsed entities 
+in a parent/child structure looking like the structure of the streams list. The 
+ParsedList is the root node of this structure, which contains 
+instances of <a class="class" href="#classes-parsedgroup">ParsedGroup</a> and 
+<a class="class" href="#classes-parsedgroup">ParsedStream</a>, which contains the parsed entities.
+				</p>
+
+				<p>
+The classes forming the structure allow to process/loop all the entities, group 
+by group or stream by stream, or to process each stream separately.
+				</p>
+
+				<h5>Member methods:</h5>
+
+				<div class="table-container">
+					<div class="table-spacer">
+						<div class="table w100 class">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Description</div>
+								<div class="table-cell c3">Return</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getChild()</div>
+								<div class="table-cell c2">Get a child by its name, or null if no child was found</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>ParsedGroup|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getChildren()</div>
+								<div class="table-cell c2">Get the array of children</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>ParsedGroup[]</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>
+ParsedList is automatically given as argument 2 of the <a class="class" href="#plugins-mixer">Mixer</a> member method "mix()":
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+mix(&$context, &$parsedList)
+</textarea>
+				</div>
+
+				<br>
+				<a name="classes-parsedgroup"></a>
+				<h4>ParsedGroup</h4>
+
+				<p>
+The ParsedGroup is an object containing instances of <a class="class" href="#classes-parsedstream">ParsedStream</a>.
+				</p>
+
+				<p>
+Each group defined in the streams list is represented by a ParsedGroup during the data mix processing. 
+Non grouped streams will be automatically grouped in default group "auto".
+				</p>
+
+				<h5>Member methods:</h5>
+
+				<div class="table-container">
+					<div class="table-spacer">
+						<div class="table w100 class">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Description</div>
+								<div class="table-cell c3">Return</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getChild()</div>
+								<div class="table-cell c2">Get a child by its name, or null if no child was found</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>ParsedStream|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getChildren()</div>
+								<div class="table-cell c2">Get the array of children</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>ParsedStream[]</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getId()</div>
+								<div class="table-cell c2">Get the ID of the group</div>
+								<div class="table-cell c3">String</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getStateNode()</div>
+								<div class="table-cell c2">Get the instance of StreamsGroupState of this group</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>StreamsGroupState</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getStreamsListNode()</div>
+								<div class="table-cell c2">Get the instance of StreamsGroup of this group</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>StreamsGroup</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>
+Instances of ParsedGroup can be obtained by calling the class ParsedList member methods "getChild()" or "getChildren()":
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="5">
+// Get all groups
+$groups = $parsedList->getChildren();
+
+// Get one group
+$group = $parsedList->getChild("name");
+</textarea>
+				</div>
+
+				<br>
+
+				<a name="classes-parsedstream"></a>
+
+				<h4>ParsedStream</h4>
+
+				<p>
+The ParsedStream is an object containing all parsed entities of a stream. It also contain the state of 
+the stream: up to date, late or outdated.
+				</p>
+
+				<h5>Member methods:</h5>
+
+				<div class="table-container">
+					<div class="table-spacer">
+						<div class="table w100 class">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Description</div>
+								<div class="table-cell c3">Return</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getChild()</div>
+								<div class="table-cell c2">Get a child by its name, or null if no child was found</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>Object|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getChildren()</div>
+								<div class="table-cell c2">Get the array of children</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>Object[]</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getId()</div>
+								<div class="table-cell c2">Get the ID of the group</div>
+								<div class="table-cell c3">String</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getIsLate()</div>
+								<div class="table-cell c2">Defines if the stream is late (relating to the update option and maximum delay)</div>
+								<div class="table-cell c3">boolean</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getIsOutdated()</div>
+								<div class="table-cell c2">Defines if the stream is outdated (relating to the update option and maximum delay)</div>
+								<div class="table-cell c3">boolean</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getIsUptodate()</div>
+								<div class="table-cell c2">Defines if the stream is up to date (relating to the update option)</div>
+								<div class="table-cell c3">boolean</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getStateNode()</div>
+								<div class="table-cell c2">Get the instance of StreamState of this group</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>StreamState</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getStreamsListNode()</div>
+								<div class="table-cell c2">Get the instance of Stream of this node</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>Stream</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>
+Instances of ParsedStream can be obtained by calling the class ParsedGroup member methods "getChild()" or "getChildren()":
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="5">
+// Get all streams
+$streams = $parsedGroup->getChildren();
+
+// Get one stream
+$stream = $parsedGroup->getChild("name");
+</textarea>
+				</div>
+
+				<br>
+				
+				<h4>StreamsList</h4>
+
+				<p>
+The StreamsList is an object representing the stream list file in form of a parent/children structure
+containing groups and nodes. It is the main class and the root node of the structure, containing all 
+data, groups and streams defined in streams list file.
+				</p>
+
+				<h5>Member methods:</h5>
+
+				<div class="table-container">
+					<div class="table-spacer">
+						<div class="table w100 class">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Description</div>
+								<div class="table-cell c3">Return</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getChild()</div>
+								<div class="table-cell c2">Get a node of the list by its ID/name, or Null if no node was found</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>StreamState|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getChildren()</div>
+								<div class="table-cell c2">Get the array of children</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>StreamsGroup[]</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getFileName()</div>
+								<div class="table-cell c2">Get the name of the streams list file</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>String</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getIsActive()</div>
+								<div class="table-cell c2">Check if the program is active or not</div>
+								<div class="table-cell c3">boolean</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getMakerClassName()</div>
+								<div class="table-cell c2">Get the name of the class used as "Maker" if it has been defined, or null</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>String|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getMixerClassName()</div>
+								<div class="table-cell c2">Get the name of the class used as "Mixer" if it has been defined, or null</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>String|null</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getOption()</div>
+								<div class="table-cell c2">Get a stream list option by its id/key, or null if no option was found</div>
+								<div class="table-cell c3">String|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getOutputFile()</div>
+								<div class="table-cell c2">Get the output file data</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>FileData</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getRunnersClassNames()</div>
+								<div class="table-cell c2">Get the names of the classes used as "Runner"</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>String[]</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getUrlsDelay()</div>
+								<div class="table-cell c2">Get the delay between downloads on same server</div>
+								<div class="table-cell c3">integer</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getValidatorClassName()</div>
+								<div class="table-cell c2">Get the name of the class used as "Mixer" if it has been defined, or null</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>String|null</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">size()</div>
+								<div class="table-cell c2">Get the number of nodes contained in this list</div>
+								<div class="table-cell c3">integer</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>
+Instance of StreamsList can be obtained by calling the class Context member method "getStreamsList()"":
+				</p>
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+$streamsList = $context->getStreamsList();
+</textarea>
+				</div>
+
+				<br>
+				
+				<h4>OutputFile</h4>
+
+				<p>
+Object especially used to store several informations about the output file.
+				</p>
+
+				<p>
+Note: This object is automatically instanciated when the program detect if an 
+output file generation is required during the process. It will never be 
+instanciated if file generation is not required.
+				</p>
+
+				<h5>Member methods:</h5>
+
+				<div class="table-container">
+					<div class="table-spacer">
+						<div class="table w100 class">
+							<div class="table-row head">
+								<div class="table-cell c1">Name</div>
+								<div class="table-cell c2">Description</div>
+								<div class="table-cell c3">Return</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">exists()</div>
+								<div class="table-cell c2">Check if file exists</div>
+								<div class="table-cell c3">boolean</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getFilePath()</div>
+								<div class="table-cell c2">Get the file path</div>
+								<div class="table-cell c3"><span class="reference">&amp;</span>String</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">getIsUptodate()</div>
+								<div class="table-cell c2">Check if output file is up to date</div>
+								<div class="table-cell c3">boolean</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">getIsValidated()</div>
+								<div class="table-cell c2">Check if output file is validated (if file validation is required)</div>
+								<div class="table-cell c3">boolean</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>
+Please note that the member variables of this object are defined at runtime, and member variables "$isUptodate" 
+and "$isValidated" will be "False" as long as these data will not be checked. You will be able to use these 
+values ​​at the end of the process.
+				</p>
+
+				<p>
+The instanciated OutputFile can be obtained by using the class Context member method "getOutputFile()":
+				</p>
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+$outputFile = $context->getOutputFile();
+</textarea>
+				</div>
+
+			</div>
+		</article>
+
+		<a name="command"></a>
+
+		<article>
+
+			<h3>COMMAND LINE PARAMETERS</h3>
+			<div class="article-inner">
+				<p>
+Various parameters can be passed to the program when it is launched.
+				</p>
+
+
+				<div class="table-container">
+					<div class="table-spacer">
+						<div class="table w100 help">
+							<div class="table-row odd">
+								<div class="table-cell c1">-c --clear</div>
+								<div class="table-cell c2">
+Clear temporary data.<br>
+( Note that if the "list" parameter is defined, only temporary 
+files used by this list will be deleted. Otherwise, all temporary 
+files will be deleted. )</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">-h --help</div>
+								<div class="table-cell c2">Display help.</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">-i --infos</div>
+								<div class="table-cell c2">Display informations about the app.</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">-l --list</div>
+								<div class="table-cell c2">
+Define a streams list file path/name.<br>
+( Can be an absolute or relative path, or the name of a file 
+placed in the configs folder. )</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">-t --test</div>
+								<div class="table-cell c2">Test the validity of the streams list.</div>
+							</div>
+							<div class="table-row">
+								<div class="table-cell c1">-u --update</div>
+								<div class="table-cell c2">Force update.</div>
+							</div>
+							<div class="table-row odd">
+								<div class="table-cell c1">-v --verbose</div>
+								<div class="table-cell c2">Display detailed output ( for diagnostic purposes ).</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<p>
+Examples of use:
+				</p>
+
+				<div>
+Run process:<br>
+php run.php<br>
+<br>
+Run process with option "verbose":<br>
+php run.php -v<br>
+php run.php --verbose<br>
+<br>
+Force update of all streams:<br>
+php run.php -u<br>
+php run.php --update<br>
+<br>
+Display help:<br>
+php run.php -h<br>
+php run.php --help<br>
+<br>
+Display program informations:<br>
+php run.php -i<br>
+php run.php --infos<br>
+<br>
+Run the process for streams list file "test.xml":<br>
+php run.php -l="test.xml"<br>
+php run.php --list="test.xml"<br>
+<br>
+Clear the temporary files for the streams list file "test.xml":<br>
+php run.php -c -l="test.xml"<br>
+php run.php --clear --list="test.xml"<br>
+<br>
+Clear all temporary files:<br>
+php run.php -c<br>
+php run.php --clear<br>
+<br>
+Test a streams list file:<br>
+php run.php -t<br>
+php run.php --test<br>
+
+				</div>
+
+			</div>
+		</article>
+
+		<a name="run"></a>
+
+		<article>
+
+			<h3>RUN THE PROGRAM</h3>
+			<div class="article-inner">
+
+				<p>
+As a simple PHP command line program, you can use any terminal/command prompt and 
+execute the following commands from the program directory:
+				</p>
+				<p>
+If a streams list file is configured in the program configuration file:
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+php run.php [optional arguments]
+</textarea>
+				</div>
+
+				<br>
+
+				<p>
+If a streams list file is not configured in the program configuration file:
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+php run.php list="[FILE]" [optional arguments]
+</textarea>
+				</div>
+
+				<br>
+
+				<p>
+To benefit from the automated update of streams and the output file, the program 
+must be execute at regular intervals using a "cron" or scheduled task.
+				</p>
+
+			</div>
+		</article>
+
+		<a name="demo"></a>
+		
+		<article>
+
+			<h3>DEMONSTRATION</h3>
+			<div class="article-inner">
+
+				<p>
+A demonstration is available with the program. Its purpose is to demonstrate a basic use case.
+				</p>
+
+				<div class="notice">
+<span class="title">Notice: </span>The current demo uses local streams for demonstration purpose. Please 
+replace the path of the sources streams by the real ones to test the demonstration on your own system.
+				</div>
+
+				<p>
+<span class="bold">Context: </span> We are working for a website specialized in cinema who need to 
+have updated viewer's notes, from four different sources, for a defined list of movies. Our mission is to get 
+an updated copy of the four different sources at defined intervals and produce a common output file, 
+compatible with the final application, mixing all data. We must generate a XML file. 
+				</p>
+
+				<p>
+<span class="bold">Note: </span> We know we will have to create a stream list to define the four different sources. 
+Furthermore, we know that we must analyze the structure of each source/stream to define how to parse them. For this 
+demo, we will use four simple but totally different structures, two in XML, one in JSON, and one in CSV.
+				</p>
+
+				<p>
+Let's create a first version of our streams list:
+				</p>
+				<div class="code-container">
+					<textarea class="code" disabled rows="7">
+<?xml version="1.0" encoding="UTF-8"?>
+<streams>
+	<stream id="src1" path="path_to\source1.xml"/>
+	<stream id="src2" path="path_to\source2.xml"/>
+	<stream id="src3" path="path_to\source3.json"/>
+	<stream id="src4" path="path_to\source4.csv"/>
+</streams>
+</textarea>
+				</div>
+		
+				<p>
+The goal of our mission is to produce a file with standardized data. The data coming from 
+the different streams can be identified correctly by their different ids, but the ids are 
+not conform with our output standard.
+				</p>
+				<p>
+So, we must create four different classes of type "Parser". We also need to create a 
+plugin/class of type "Mixer" to mix/aggregate data coming from all parsers. 
+We will program the member method "mix()" to aggregate all data in a standardized way and 
+calculate an average note for each movie. Last, we must create a plugin/class of type 
+"Maker" to create the output file.
+				</p>
+
+				<p>
+<span class="danger">We leave it to the readers to read the corresponding sources...</span>
+				</p>
+
+				<div>
+				<div class="tree-container">
+					<div class="tree l-0">
+						<div class="tree l-0">/plugins</div>
+						<div class="tree l-1">/parsers</div>
+						<div class="tree l-1">
+							<div class="tree l-1">DemoMoviesParser1.php</div>
+							<div class="tree l-1">DemoMoviesParser2.php</div>
+							<div class="tree l-1">DemoMoviesParser3.php</div>
+							<div class="tree l-1">DemoMoviesParser4.php</div>
+						</div>
+						<div class="tree l-1">/mixers</div>
+						<div class="tree l-1">
+							<div class="tree l-1">DemoMoviesMixer.php</div>
+						</div>
+						<div class="tree l-1">/makers</div>
+						<div class="tree l-1">
+							<div class="tree l-1">DemoMoviesMaker.php</div>
+						</div>
+					</div>
+				</div>
+				</div>
+
+				<br>
+
+				<p>
+Now that we have all our classes in their respective directories, we can finalize our 
+streams list...
+				</p>
+
+				<p>
+The only thing to do to finish is to define the name of the output file and the interval of update. 
+We will use the name "output.xml" for the output file, and will program an update of the sources 
+two times per day, one first time at 00:00 and the second 
+one at 12:00. We will use the following update option: <span class="code">h{0};h{12}</span>
+				</p>
+
+				<p>
+Here is the final version of our streams list:
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="7">
+<?xml version="1.0" encoding="UTF-8"?>
+<streams mixer="DemoMoviesMixer" maker="DemoMoviesMaker" update="h{0};h{12}" output="output.xml" >
+	<stream id="src1" path="path_to\source1.xml" parser="DemoMoviesParser1"/>
+	<stream id="src2" path="path_to\source2.xml" parser="DemoMoviesParser2"/>
+	<stream id="src3" path="path_to\source3.json" parser="DemoMoviesParser3"/>
+	<stream id="src4" path="path_to\source4.csv" parser="DemoMoviesParser4"/>
+</streams>
+</textarea>
+				</div>
+
+				<p>
+The streams list is done. We can save the file as "demo.xml" (for the demonstration).
+				</p>
+
+				<br>
+
+				<p>
+<span class="bold">Let's try to run the process:</span>
+				</p>
+
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+php /path_to_program/run.php list="demo.xml"
+</textarea>
+				</div>
+
+				<br>
+
+				<p>
+Now that we can observe that the process works correctly, all that remains is to program the execution 
+of the process at a regular interval. 
+As we are expecting an update two times per day, we can decide to program the execution of the process each 
+hour. This way, the process will update two times per days and, if an error impeach the update at the usual 
+hour, the process will try to re-update (and store logs) one time per hour until the update.
+				</p>
+
+				<br>
+
+				<p>
+<span class="bold">Create a cron task (on Linux system):</span>
+				</p>
+		
+				<div class="code-container">
+					<textarea class="code" disabled rows="1">
+0 * * * * php /path_to_program/run.php list="demo.xml"
+</textarea>
+				</div>
+
+			</div>
+		</article>
+
+		<a name="license"></a>
+
+		<article>
+
+			<h3>LICENSE</h3>
+			<div class="article-inner">
+
+				<p>
+"PHP Streams Aggregator" is released under the terms of the GNU General Public License, as published by 
+the Free Software Foundation, either version 3 of the License, or 
+(at your option) any later version.
+				</p>
+				<p>
+"PHP Streams Aggregator" is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+				</p>
+				<p>
+See the GNU General Public License for more details. 
+				</p>
+
+			</div>
+		</article>
+
+		<article>
+
+			<h3>MORE INFORMATIONS / UPDATE / SOURCES</h3>
+			<div class="article-inner">
+
+				<div>
+Website:<br>
+http://github.........
+				</div>
+
+			</div>
+		</article>
+
+		<footer>
+			<div>Copyright (C) 2018-2020 Christophe Leblanc</div>
+		</footer>
+
+	</div>
+</div>
+
+</body>
+</html> 
