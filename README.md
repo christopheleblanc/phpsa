@@ -22,6 +22,12 @@ With some basic knowledge, you will easily be able to keep your sources up to da
 
 **From sources:** Download/copy the program directory to the location of your choice.
 
+# Run the program
+As a simple PHP command line program, you can use any terminal/command prompt and execute the following commands from the program directory:
+```
+php run.php [optional arguments]
+```
+
 # Demonstration
 A demonstration is available with the program. Its purpose is to demonstrate a basic use case.
 
