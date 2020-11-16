@@ -24,6 +24,36 @@ PHP Streams Aggregator does not require any specific installation. Just place th
 
 **Requires PHP 7.0 and higher**
 
+# Configuration
+The use cases, the types of streams/feeds, the entities to be parsed and exported can be very varied, each process will require specific plugins and configuration.
+
+To configure a process, you may use two different XML files.
+
+The first file is the configuration file, which can contains various options relating to the entire program, regardless of the streams/feeds to be processed.
+
+The second file, called "streams list", is most important. It is used to define all the streams that must be loaded (and parsed), as well as the options specific to the process or to the streams. The id/name of each stream, the method used to download it (URL, FTP...), the plugin used to parse it, the update options etc....
+
+To facilitate the execution of the program, the streams list file can be defined directly in the configuration file by defining the option "list".
+
+Once the streams list file is created, you will be able to test it using the command parameter "test" ("-t" or "--test"). Of course, you can also start the update process directly. Any errors found in the file will be displayed and the process will be terminated.
+
+# Plugins
+Unfortunately, there is no magic in the way the program works. Each stream can have a different structure, the data to be parsed can be of various types, the output file can be totally different depending on your use, so you will have to develop your own plugins and integrate them into the program.
+
+Don't panic! This concept has been simplified as much as possible, and if the streams processed are simple, your plugins will only represent a few lines of code. Either way, if you've already developed a little piece of code to parse a stream, add entities to an array or export a file, it will be a snap!
+
+**In its current version, the program take five types of plugins:**
+
+**Parser:** A type of plugins intended to parse a stream and add the parsed entities to a simple array.
+
+**Mixer:** A type of plugins intended to "mix" or aggregate all parsed entities from all streams. This type of plugin is optional but can be useful for many other things which will be described in a dedicated paragraph.
+
+**Maker:** A type of plugins intended to finalize the process with parsed data. It can be used to store parsed data into an output file or in a database, send data by email, pass them to an other program...
+
+**Validator:** A type of plugins intended to validate the exported file. This type of plugins is optional but can be useful to validate your output file and doing some stuff if you got errors.
+
+**Runner:** A type of plugins which has the ability to reacts to event during all the process. Can be used to listen errors etc...
+
 # Run the program
 As a simple PHP command line program, you can use any terminal/command prompt and execute the following commands from the program directory:
 ```
