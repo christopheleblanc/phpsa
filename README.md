@@ -44,9 +44,9 @@ Don't panic! This concept has been simplified as much as possible, and if the st
 
 **In its current version, the program take five types of plugins:**
 
-**Parser:** A type of plugins intended to parse a stream and add the parsed entities to a simple array.
+**Parser:** A type of plugins intended to parse a stream.
 
-**Mixer:** A type of plugins intended to "mix" or aggregate all parsed entities from all streams. This type of plugin is optional but can be useful for many other things which will be described in a dedicated paragraph.
+**Mixer:** A type of plugins intended to "mix" or aggregate all parsed entities from all streams. This type of plugin is optional but can be useful for many other things.
 
 **Maker:** A type of plugins intended to finalize the process with parsed data. It can be used to store parsed data into an output file or in a database, send data by email, pass them to an other program...
 
